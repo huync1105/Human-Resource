@@ -1,0 +1,33 @@
+<div class="btn-container">
+  <app-btn
+    [class]="button.back"
+    [backgroundColor]="button.yellow"
+    (click)="goBack()"
+  ></app-btn>
+  <app-btn
+    [class]="button.add"
+    [backgroundColor]="button.green"
+    [style.font-weight]="'bold'"
+    [routerLink]="'/staff/:id'"
+  ></app-btn>
+</div>
+
+<input 
+  type="text"
+  placeholder="Search staff's name..."
+  [(ngModel)]="value"
+  (keyup)="search()"
+>
+
+<ul>
+  <li *ngFor="let staff of staffs">
+    <a routerLink="/staff/{{staff.id}}">
+      <img [src]="staff.thumbnail" alt="">
+      <div class="info">
+        <h3>{{staff.name}}</h3>
+        <p>{{staff | filter: departments}}</p>
+        <p>+84 {{staff.phone}}</p>
+      </div>
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,43 @@
+<div class="container">
+
+  <div class="top">
+  
+    <div class="btn-container">
+    
+      <app-btn
+      [class]="button.back"
+      [backgroundColor]="button.yellow"
+      (click)="goBack()"
+      ></app-btn>
+      <app-btn
+        
+        [content]="'Staff list'"
+        [backgroundColor]="button.yellow"
+        [style.font-weight]="'bold'"
+        [routerLink]="'list-staff'"
+        ></app-btn>
+    
+    </div>
+    
+    <div class="department-detail" *ngIf="department">
+    
+      <h2>{{department.name}} Department</h2>
+      <input 
+      type="text"
+      placeholder="Department name*"
+      [(ngModel)]="department.name"
+      >
+      <div class="validate">
+
+      </div>
+      <p *ngIf="staffs">Staff number: {{staffs.length}}</p>
+      
+      <button (click)="save()">
+        Save
+      </button>
+
+    </div>
+  
+  </div>
+
+</div>

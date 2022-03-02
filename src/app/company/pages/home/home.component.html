@@ -1,0 +1,36 @@
+<div id="wrapper">
+
+  <div class="app">
+
+    <!-- title -->
+    <h1>My Company</h1>
+
+    <!-- router -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- navigation -->
+    <nav>
+      <app-nav-btn 
+        [class]="navBtn.home"
+        [color]="navBtn.homeColor"
+        [fontSize]="navBtn.fontSize"
+        [router]="navBtn.routerHome"
+        [mark]="navBtn.markHome"
+        (click)="homeRoute()"
+      ></app-nav-btn>
+      <app-nav-btn 
+        [class]="navBtn.staff"
+        [color]="navBtn.staffColor"
+        [fontSize]="navBtn.fontSize"
+        [router]="'/department/{{undefined}}/list-staff'"
+        [mark]="navBtn.markStaff"
+        (click)="staffRoute()"
+        ></app-nav-btn>
+    </nav>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,105 @@
+
+<div class="btn-container">
+
+  <app-btn
+    (click)="goBack()"
+    [class]="button.back"
+    [backgroundColor]="button.yellow"
+  ></app-btn>
+
+  <app-btn
+    *ngIf="staff === undefined"
+    (click)="addStaff()"
+    [content]="'Save'"
+    [backgroundColor]="button.green"
+    [style]="'font-weight: bold; font-size: 16px'"
+  ></app-btn>
+  
+</div>
+
+<div class="staff-info" *ngIf="staff">
+
+  <div class="staff-avatar">
+    <img src="{{staff.thumbnail}}" alt="">
+  </div>
+
+  <div class="staff-main">
+    
+      <label for="name">Name</label>
+      <input 
+        id="name"
+        type="text"
+        [(ngModel)]="staff.name"
+      >
+
+      <label for="department">Department</label>
+      <input 
+        id="department"
+        readonly
+        type="text"
+        value="{{staff | filter: departments}}"
+      >
+
+      <label for="phone">Phone</label>
+      <input 
+        id="phone"
+        type="text"
+        [(ngModel)]="staff.phone"
+      >
+
+  </div>
+
+  <app-btn
+    (click)="deleteStaff()"
+    [content]="'Delete'"
+    [backgroundColor]="button.red"
+    [style]="'font-weight: bold; font-size: 16px'"
+  ></app-btn>
+
+</div>
+
+<div class="staff-info" *ngIf="staff === undefined">
+
+  <div class="staff-avatar">
+    <img src="{{thumbnail}}" alt="">
+  </div>
+
+  <div class="staff-main">
+    
+      <label for="name">Name</label>
+      <input 
+        id="name"
+        type="text"
+        placeholder="Name"
+        [(ngModel)]="name"
+      >
+
+      <label for="department">Department</label>
+      <select id="department" [(ngModel)]="selectedValue">
+        <option *ngFor="let department of departments" value="{{department.id}}">{{department.name}}</option>
+      </select>
+      <!-- <input 
+        id="department"
+        type="text"
+        value="department"
+      > -->
+
+      <label for="avatar">Staff image</label>
+      <input 
+        id="avatar"
+        type="text"
+        placeholder="Type img url"
+        [(ngModel)]="thumbnail"
+      >
+
+      <label for="phone">Phone</label>
+      <input 
+        id="phone"
+        type="text"
+        placeholder="Phone"
+        [(ngModel)]="phone"
+      >
+
+  </div>
+
+</div>

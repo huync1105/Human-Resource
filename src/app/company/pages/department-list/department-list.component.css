@@ -1,0 +1,29 @@
+ul {
+  list-style-type: none;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+ul li {
+  margin: 8px;
+  background-color: #FFF6DD;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #2c2c2c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 140px;
+}
+
+ul li:hover {
+  background-color: #fdefc2;
+}

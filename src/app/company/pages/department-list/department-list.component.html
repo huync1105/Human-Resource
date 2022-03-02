@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let department of departments">
+    <a routerLink="/department/{{department.id}}">
+      {{ department.name }}
+    </a>
+  </li>
+</ul>
